@@ -21,7 +21,13 @@ class Form extends Component {
         };
         this.state = this.initialState;
         if(props.editSchedule !== undefined) {
-           this.state = { ...props.editSchedule[0] }
+            this.state = { ...props.editSchedule[0],
+                trainingNameError: '',
+                departmentError: '',
+                durationError: '',
+                dateTimeError: '',
+                meetingRoomError: ''
+            }
         }
     }
 
@@ -58,22 +64,22 @@ class Form extends Component {
         } 
         
         if(!this.state.duration) {
-            durationError = "Meeting Room is required.";
-        } 
+            durationError = "Duration is required.";
+        }
         
         if(!this.state.dateTime) {
             dateTimeError = "Date and Time is required.";
         } 
         
         if(!this.state.meetingRoom) {
-            meetingRoomError = "Duration is required.";
-        }
+            meetingRoomError = "Meeting Room is required.";
+        } 
 
         if (trainingNameError || departmentError || durationError || dateTimeError || meetingRoomError) {
             this.setState({ trainingNameError, departmentError,durationError, dateTimeError, meetingRoomError });
             return false;
-        }
-      
+        } 
+        
         return true;
     }
 

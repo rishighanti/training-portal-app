@@ -64,7 +64,7 @@ class App extends Component {
     }
 
     if(flag === 1) {
-      this.setState({schedules: schedules});
+      this.setState({schedules: schedules, selectedSchedule: ''});
     } else {
       schedule.id = Math.floor(Math.random()*90000) + 10000;
       this.setState({schedules: [...this.state.schedules, schedule]});
